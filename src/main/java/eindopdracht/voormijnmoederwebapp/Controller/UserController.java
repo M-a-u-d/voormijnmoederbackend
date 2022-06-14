@@ -20,6 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @GetMapping(value = "")
     public ResponseEntity<List<UserDto>> getUsers() {
 
