@@ -1,58 +1,58 @@
-package eindopdracht.voormijnmoederwebapp.Service;
-
-import eindopdracht.voormijnmoederwebapp.Exeptions.BadRequestException;
-import eindopdracht.voormijnmoederwebapp.Exeptions.RecordNotFoundException;
-import eindopdracht.voormijnmoederwebapp.Repositories.ContactVerzoekRepository;
-import eindopdracht.voormijnmoederwebapp.Repositories.GebeurtenisRepository;
-import eindopdracht.voormijnmoederwebapp.Repositories.MemberRepository;
-import eindopdracht.voormijnmoederwebapp.entiteiten.ContactVerzoek;
-import eindopdracht.voormijnmoederwebapp.entiteiten.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
-@Service
-public class MemberService {
-
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @Autowired
-    private GebeurtenisRepository gebeurtenisRepository;
-
-    @Autowired
-    private ContactVerzoekRepository contactVerzoekRepository;
-
-    public List<Member> getAllMembers() {
-        return memberRepository.findAll();
-    }
-
-    public Member getMember(long id) {
-        if (memberRepository.existsById(id)) {
-            return memberRepository.findById(id).get();
-        }
-        else {
-            throw new RecordNotFoundException("No member with id " + id);
-        }
-    }
-
-    public long save(Member member) {
-        Member saved = memberRepository.save(member);
-        return saved.getId();
-    }
-
-    public void deleteById(long id) {
-        if (memberRepository.existsById(id)) {
-            memberRepository.deleteById(id);
-        }
-        else {
-            throw new RecordNotFoundException("No member with id " + id);
-        }
-    }
-
+//package eindopdracht.voormijnmoederwebapp.Service;
+//
+//import eindopdracht.voormijnmoederwebapp.Exeptions.BadRequestException;
+//import eindopdracht.voormijnmoederwebapp.Exeptions.RecordNotFoundException;
+//import eindopdracht.voormijnmoederwebapp.Repositories.ContactVerzoekRepository;
+//import eindopdracht.voormijnmoederwebapp.Repositories.GebeurtenisRepository;
+//import eindopdracht.voormijnmoederwebapp.Repositories.MemberRepository;
+//import eindopdracht.voormijnmoederwebapp.entiteiten.ContactVerzoek;
+//import eindopdracht.voormijnmoederwebapp.entiteiten.Member;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Service;
+//
+//import java.time.LocalDateTime;
+//import java.util.List;
+//import java.util.Optional;
+//
+//@Service
+//public class MemberService {
+//
+//    @Autowired
+//    private MemberRepository memberRepository;
+//
+////    @Autowired
+////    private GebeurtenisRepository gebeurtenisRepository;
+////
+////    @Autowired
+////    private ContactVerzoekRepository contactVerzoekRepository;
+//
+//    public List<Member> getAllMembers() {
+//        return memberRepository.findAll();
+//    }
+//
+//    public Member getMember(long id) {
+//        if (memberRepository.existsById(id)) {
+//            return memberRepository.findById(id).get();
+//        }
+//        else {
+//            throw new RecordNotFoundException("No member with id " + id);
+//        }
+//    }
+//
+//    public long save(Member member) {
+//        Member saved = memberRepository.save(member);
+//        return saved.getId();
+//    }
+//
+//    public void deleteById(long id) {
+//        if (memberRepository.existsById(id)) {
+//            memberRepository.deleteById(id);
+//        }
+//        else {
+//            throw new RecordNotFoundException("No member with id " + id);
+//        }
+//    }
+//
 //    public List<ContactVerzoek> getContactVerzoek(long id) {
 //        Member member = getMember(id);
 //        return member.getContactVerzoek();
@@ -128,5 +128,5 @@ public class MemberService {
 //            throw new RecordNotFoundException("No borrowed copy with id " + borrowedCopyId);
 //        }
 //    }
-
-}
+//
+//}

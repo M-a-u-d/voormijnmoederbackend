@@ -19,6 +19,6 @@ public class Gebeurtenis {
     private String street;
     private String place;
 
-    @ManyToOne
-    private Member member;
+//    @ManyToOne
+//    private Member member;
 }
