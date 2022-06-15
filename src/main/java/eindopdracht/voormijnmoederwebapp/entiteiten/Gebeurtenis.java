@@ -14,10 +14,10 @@ public class Gebeurtenis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
-    private String date;
-    private String street;
-    private String place;
+    private String Naam;
+    private String datum;
+    private String straat;
+    private String woonplaats;
 
 //    @ManyToOne
 //    private Member member;

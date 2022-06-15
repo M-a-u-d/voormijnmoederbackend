@@ -4,6 +4,7 @@ package eindopdracht.voormijnmoederwebapp.entiteiten;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Contactverzoek")
     public class ContactVerzoek {
 
     @Id

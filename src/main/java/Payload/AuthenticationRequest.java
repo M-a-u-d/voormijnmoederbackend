@@ -1,4 +1,4 @@
-package eindopdracht.voormijnmoederwebapp.Payload;
+package Payload;
 
 public class AuthenticationRequest {
 
