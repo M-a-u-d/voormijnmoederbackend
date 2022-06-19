@@ -5,8 +5,8 @@ import eindopdracht.voormijnmoederwebapp.Exeptions.UsernameNotFoundException;
 import eindopdracht.voormijnmoederwebapp.Repositories.UserRepository;
 
 import eindopdracht.voormijnmoederwebapp.Utils.RandomStringGenerator;
-import eindopdracht.voormijnmoederwebapp.entiteiten.Authority;
-import eindopdracht.voormijnmoederwebapp.entiteiten.User;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

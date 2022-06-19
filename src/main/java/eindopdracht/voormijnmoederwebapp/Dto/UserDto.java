@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import eindopdracht.voormijnmoederwebapp.entiteiten.Authority;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
 
 import java.util.Set;
 

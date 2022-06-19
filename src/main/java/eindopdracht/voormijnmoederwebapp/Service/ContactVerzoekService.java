@@ -4,7 +4,7 @@ package eindopdracht.voormijnmoederwebapp.Service;
 import eindopdracht.voormijnmoederwebapp.Dto.ContactVerzoekDto;
 import eindopdracht.voormijnmoederwebapp.Dto.ContactVerzoekInputDto;
 import eindopdracht.voormijnmoederwebapp.Repositories.ContactVerzoekRepository;
-import eindopdracht.voormijnmoederwebapp.entiteiten.ContactVerzoek;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.ContactVerzoek;
 import org.springframework.stereotype.Service;
 
 @Service

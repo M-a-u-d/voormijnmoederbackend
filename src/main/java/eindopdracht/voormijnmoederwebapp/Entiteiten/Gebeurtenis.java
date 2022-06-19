@@ -1,4 +1,4 @@
-package eindopdracht.voormijnmoederwebapp.entiteiten;
+package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import lombok.Data;
 
@@ -18,6 +18,9 @@ public class Gebeurtenis {
     private String datum;
     private String straat;
     private String woonplaats;
+    private String naamwaar;
+    private String opmerking;
+    private String organisator;
 
 //    @ManyToOne
 //    private Member member;

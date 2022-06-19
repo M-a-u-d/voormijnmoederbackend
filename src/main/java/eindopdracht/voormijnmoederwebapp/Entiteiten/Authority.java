@@ -1,4 +1,4 @@
-package eindopdracht.voormijnmoederwebapp.entiteiten;
+package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 
 import javax.persistence.*;

@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Service;
 
 import eindopdracht.voormijnmoederwebapp.Repositories.FileUploadRepository;
-import eindopdracht.voormijnmoederwebapp.entiteiten.FileUploadResponse;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;

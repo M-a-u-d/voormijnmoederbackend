@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp;
 
 import eindopdracht.voormijnmoederwebapp.Repositories.RoleRepository;
-import eindopdracht.voormijnmoederwebapp.entiteiten.Role;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

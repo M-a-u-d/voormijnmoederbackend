@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Repositories;
 
 
-import eindopdracht.voormijnmoederwebapp.entiteiten.FileUploadResponse;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

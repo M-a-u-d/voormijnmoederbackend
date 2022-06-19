@@ -2,7 +2,7 @@ package eindopdracht.voormijnmoederwebapp.Controller;
 
 
 import eindopdracht.voormijnmoederwebapp.Service.PhotoService;
-import eindopdracht.voormijnmoederwebapp.entiteiten.FileUploadResponse;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

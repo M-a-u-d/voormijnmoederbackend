@@ -1,4 +1,4 @@
-package Payload;
+package eindopdracht.voormijnmoederwebapp.Payload;
 
 public class AuthenticationResponse {
 
