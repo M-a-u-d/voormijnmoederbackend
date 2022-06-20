@@ -1,12 +1,14 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class FileUploadResponse {
 
     @Id
+    @GeneratedValue
     private String fileName;
 
     private String contentType;

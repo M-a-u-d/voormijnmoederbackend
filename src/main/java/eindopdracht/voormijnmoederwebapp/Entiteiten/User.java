@@ -1,5 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,12 +9,24 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
+    @GeneratedValue(generator = "sequence-generator")
+    @GenericGenerator(
+            name = "sequence-generator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "user_sequence"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "1003"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
+
+    private Long Id;
+
     @Column
     private String username;
 
-    @Column
-    private String Id;
 
     @Column
     private String name;
@@ -62,7 +76,6 @@ public class User {
 
     public User(String username, String id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities) {
         this.username = username;
-        Id = id;
         this.name = name;
         Phone = phone;
         this.birthdate = birthdate;
@@ -81,12 +94,20 @@ public class User {
         this.username = username;
     }
 
-    public String getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         Id = id;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getName() {

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ public class GebeurtenisService {
 
         } else {
 
-            throw new  RecordNotFoundException("geen televisie gevonden");
+            throw new  RecordNotFoundException("geen gebeurtenis gevonden");
 
         }
 

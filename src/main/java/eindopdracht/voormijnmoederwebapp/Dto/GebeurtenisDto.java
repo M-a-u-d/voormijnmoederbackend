@@ -7,20 +7,20 @@ public class GebeurtenisDto {
     private String straat;
     private String woonplaats;
     private String naamwaar;
-    private String opmering;
+    private String opmerking;
     private String organisator;
 
     public GebeurtenisDto() {
     }
 
-    public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmering, String organisator) {
+    public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmerking, String organisator) {
         this.id = id;
         Naam = naam;
         this.datum = datum;
         this.straat = straat;
         this.woonplaats = woonplaats;
         this.naamwaar = naamwaar;
-        this.opmering = opmering;
+        this.opmerking = opmerking;
         this.organisator = organisator;
     }
 
@@ -33,11 +33,11 @@ public class GebeurtenisDto {
     }
 
     public String getOpmering() {
-        return opmering;
+        return opmerking;
     }
 
     public void setOpmering(String opmering) {
-        this.opmering = opmering;
+        this.opmerking = opmering;
     }
 
     public String getOrganisator() {
