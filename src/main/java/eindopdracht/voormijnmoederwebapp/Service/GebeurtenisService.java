@@ -101,7 +101,7 @@ public class GebeurtenisService {
         Gebeurtenis.setStraat(dto.getStraat());
         Gebeurtenis.setWoonplaats(dto.getWoonplaats());
         Gebeurtenis.setNaamwaar(dto.getNaamwaar());
-        Gebeurtenis.setOpmerking(dto.getOpmering());
+        Gebeurtenis.setOpmerking(dto.getOpmerking());
         Gebeurtenis.setOrganisator(dto.getOrganisator());
 
         return Gebeurtenis;
@@ -117,7 +117,7 @@ public class GebeurtenisService {
         dto.setStraat(gebeurtenis.getStraat());
         dto.setWoonplaats(gebeurtenis.getWoonplaats());
         dto.setNaamwaar(gebeurtenis.getNaamwaar());
-        dto.setOpmering(gebeurtenis.getOpmerking());
+        dto.setOpmerking(gebeurtenis.getOpmerking());
         dto.setOrganisator(gebeurtenis.getOrganisator());
 
         return dto;

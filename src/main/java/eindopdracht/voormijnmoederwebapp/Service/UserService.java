@@ -9,6 +9,7 @@ import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
 import eindopdracht.voormijnmoederwebapp.Entiteiten.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +22,10 @@ import java.util.Set;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     public UserService(UserRepository userRepository)
     {
@@ -52,6 +57,7 @@ public class UserService {
     }
 
     public String createUser(UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         userDto.setApikey(randomString);
         User newUser = userRepository.save(toUser(userDto));

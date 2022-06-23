@@ -32,11 +32,11 @@ public class GebeurtenisDto {
         this.naamwaar = naamwaar;
     }
 
-    public String getOpmering() {
+    public String getOpmerking() {
         return opmerking;
     }
 
-    public void setOpmering(String opmering) {
+    public void setOpmerking(String opmering) {
         this.opmerking = opmering;
     }
 

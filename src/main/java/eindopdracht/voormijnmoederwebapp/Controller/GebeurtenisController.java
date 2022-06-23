@@ -75,14 +75,6 @@ public class GebeurtenisController {
         return ResponseEntity.ok().body(dto);
     }
 
-//        throws URISyntaxException {URI location = new URI("localhost.8081/televisions");
-//        return ResponseEntity.created(location).build();
-
-//    @PutMapping("/televisions/{id}/remotecontroller")
-//    public void assignRemoteControllerToTelevision(@PathVariable("id") Long id, @RequestBody IdInputDto input) {
-//        televisionService.assignRemoteControllerToTelevision(id, input.id);
-//    }
-
 
 
     @DeleteMapping("/gebeurtenissen/{id}")

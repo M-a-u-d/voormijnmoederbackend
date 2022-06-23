@@ -7,7 +7,7 @@ public class GebeurtenisInputDto {
     private String straat;
     private String woonplaats;
     private String naamwaar;
-    private String opmering;
+    private String opmerking;
     private String organisator;
 
 
@@ -20,7 +20,7 @@ public class GebeurtenisInputDto {
         this.straat = straat;
         this.woonplaats = woonplaats;
         this.naamwaar = naamwaar;
-        this.opmering = opmering;
+        this.opmerking = opmering;
         this.organisator = organisator;
     }
 
@@ -64,12 +64,12 @@ public class GebeurtenisInputDto {
         this.naamwaar = naamwaar;
     }
 
-    public String getOpmering() {
-        return opmering;
+    public String getOpmerking() {
+        return opmerking;
     }
 
-    public void setOpmering(String opmering) {
-        this.opmering = opmering;
+    public void setOpmerking(String opmering) {
+        this.opmerking = opmering;
     }
 
     public String getOrganisator() {
