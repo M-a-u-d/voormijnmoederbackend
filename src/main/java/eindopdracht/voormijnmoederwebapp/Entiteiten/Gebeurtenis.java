@@ -1,7 +1,11 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "gebeurtenissen")
@@ -10,6 +14,8 @@ public class Gebeurtenis {
     @Id
     @Column (nullable = false)
     private String naam;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column
     private String datum;
@@ -24,9 +30,12 @@ public class Gebeurtenis {
     @Column
     private String organisator;
 
-//    @ManyToOne
-//    private User user;
+    @ManyToOne
+    private User user;
 
+    @OneToMany(mappedBy = "gebeurtenis")
+    @JsonBackReference
+    private List<GebeurtenisEnUser> wieKomtEr = new ArrayList<>();
 
     public Gebeurtenis() {
     }
@@ -40,6 +49,10 @@ public class Gebeurtenis {
     public void setNaam(String naam) {
         this.naam = naam;
     }
+
+    public Long getId() { return id;}
+
+    public void setId(Long id) { this.id = id; }
 
     public String getDatum() {
         return datum;

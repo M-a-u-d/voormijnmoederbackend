@@ -2,10 +2,10 @@
 //
 //import eindopdracht.voormijnmoederwebapp.Exeptions.BadRequestException;
 //import eindopdracht.voormijnmoederwebapp.Exeptions.RecordNotFoundException;
-//import eindopdracht.voormijnmoederwebapp.Repositories.ContactVerzoekRepository;
+//import eindopdracht.voormijnmoederwebapp.Repositories.GebeurtenisEnUserRepository;
 //import eindopdracht.voormijnmoederwebapp.Repositories.GebeurtenisRepository;
 //import eindopdracht.voormijnmoederwebapp.Repositories.MemberRepository;
-//import eindopdracht.voormijnmoederwebapp.entiteiten.ContactVerzoek;
+//import eindopdracht.voormijnmoederwebapp.entiteiten.GebeurtenisEnUser;
 //import eindopdracht.voormijnmoederwebapp.entiteiten.Member;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
@@ -24,7 +24,7 @@
 ////    private GebeurtenisRepository gebeurtenisRepository;
 ////
 ////    @Autowired
-////    private ContactVerzoekRepository contactVerzoekRepository;
+////    private GebeurtenisEnUserRepository contactVerzoekRepository;
 //
 //    public List<Member> getAllMembers() {
 //        return memberRepository.findAll();
@@ -53,7 +53,7 @@
 //        }
 //    }
 //
-//    public List<ContactVerzoek> getContactVerzoek(long id) {
+//    public List<GebeurtenisEnUser> getContactVerzoek(long id) {
 //        Member member = getMember(id);
 //        return member.getContactVerzoek();
 //    }

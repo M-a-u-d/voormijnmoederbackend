@@ -1,9 +1,11 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,6 +16,7 @@ public class User {
     private String username;
 
     @Column
+    @GeneratedValue
     private Long id;
 
     @Column
@@ -47,6 +50,11 @@ public class User {
 
     private Set<Authority> authorities = new HashSet<>();
 
+    @OneToMany( mappedBy = "user")
+    @JsonIgnore
+    private List<Gebeurtenis> gebeurtenissen;
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -61,7 +69,6 @@ public class User {
 
     public User() {
     }
-
     public User(String username, Long id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities, Set<Role> roles) {
         this.username = username;
         this.id = id;
