@@ -8,6 +8,7 @@ import java.util.Set;
 public class UserDto {
 
     public String username;
+    public Long id;
     public String password;
     public Boolean enabled;
     public String apikey;
@@ -17,6 +18,10 @@ public class UserDto {
 
     public String getUsername() {
         return username;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getPassword() {
@@ -41,6 +46,10 @@ public class UserDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {

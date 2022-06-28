@@ -45,7 +45,7 @@ public class AuthenticationController {
             );
         }
         catch (BadCredentialsException ex) {
-            throw new Exception("Incorrect username or password", ex);
+            throw new Exception("Incorrect email or password", ex);
         }
 
         final UserDetails userDetails = userDetailsService

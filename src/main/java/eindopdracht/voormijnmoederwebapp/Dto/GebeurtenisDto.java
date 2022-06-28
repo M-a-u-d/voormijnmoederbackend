@@ -13,16 +13,7 @@ public class GebeurtenisDto {
     public GebeurtenisDto() {
     }
 
-    public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmerking, String organisator) {
-        this.id = id;
-        Naam = naam;
-        this.datum = datum;
-        this.straat = straat;
-        this.woonplaats = woonplaats;
-        this.naamwaar = naamwaar;
-        this.opmerking = opmerking;
-        this.organisator = organisator;
-    }
+
 
     public String getNaamwaar() {
         return naamwaar;

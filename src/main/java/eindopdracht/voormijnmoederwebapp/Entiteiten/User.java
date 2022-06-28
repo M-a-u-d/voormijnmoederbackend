@@ -14,6 +14,9 @@ public class User {
     private String username;
 
     @Column
+    private Long id;
+
+    @Column
     private String name;
 
     @Column
@@ -59,8 +62,9 @@ public class User {
     public User() {
     }
 
-    public User(String username, String id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities) {
+    public User(String username, Long id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities, Set<Role> roles) {
         this.username = username;
+        this.id = id;
         this.name = name;
         Phone = phone;
         this.birthdate = birthdate;
@@ -69,6 +73,7 @@ public class User {
         this.enabled = enabled;
         this.apikey = apikey;
         this.authorities = authorities;
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -79,12 +84,12 @@ public class User {
         this.username = username;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public Long getId() {
+        return id;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -151,10 +156,19 @@ public class User {
         this.authorities = authorities;
     }
 
-    public void addAuthority(Authority authority) {
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void removeAuthority(Authority authorityToRemove) {
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void addAuthority(Authority authority) {
+        this.authorities.add(authority);
+    }
+    public void removeAuthority(Authority authority) {
+        this.authorities.remove(authority);
     }
 }
 

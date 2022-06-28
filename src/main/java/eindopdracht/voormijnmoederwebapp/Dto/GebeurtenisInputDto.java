@@ -14,15 +14,7 @@ public class GebeurtenisInputDto {
     public GebeurtenisInputDto() {
     }
 
-    public GebeurtenisInputDto(String naam, String datum, String straat, String woonplaats, String naamwaar, String opmering, String organisator) {
-        Naam = naam;
-        this.datum = datum;
-        this.straat = straat;
-        this.woonplaats = woonplaats;
-        this.naamwaar = naamwaar;
-        this.opmerking = opmering;
-        this.organisator = organisator;
-    }
+
 
     public String getNaam() {
         return Naam;

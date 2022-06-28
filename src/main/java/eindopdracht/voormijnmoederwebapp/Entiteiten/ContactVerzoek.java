@@ -1,6 +1,8 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 
+import lombok.extern.apachecommons.CommonsLog;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,10 +11,10 @@ import javax.persistence.*;
 
     @Id
     @GeneratedValue
-    private Long id;
+    private String naam;
 
     @Column
-    private String naam;
+    private Long id;
 
     @Column
     private String vanWie;

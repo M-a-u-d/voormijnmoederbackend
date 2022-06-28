@@ -43,10 +43,10 @@ public class GebeurtenisController {
     }
 
 
-    @GetMapping("/gebeurtenissen/{id}")
-    public ResponseEntity<Object> getGebeurtenis(@PathVariable Long id) {
+    @GetMapping("/gebeurtenissen/{naam}")
+    public ResponseEntity<Object> getGebeurtenis(@PathVariable String naam) {
 
-        GebeurtenisDto gebeurtenis = gebeurtenisService.getGebeurtenisById(id);
+        GebeurtenisDto gebeurtenis = gebeurtenisService.getGebeurtenisByNaam(naam);
 
         return ResponseEntity.ok().body(gebeurtenis);
     }
@@ -67,20 +67,20 @@ public class GebeurtenisController {
 //        return ResponseEntity.created(location).build();
 //    }
 
-    @PutMapping("/gebeurtenissen/{id}")
+    @PutMapping("/gebeurtenissen/{naam}")
     public ResponseEntity<Object> updateGebeurtenis(
-            @PathVariable long id,
+            @PathVariable String naam,
             @RequestBody GebeurtenisInputDto newGebeurtenis) {
-        GebeurtenisDto dto = gebeurtenisService.updateGebeurtenis(id, newGebeurtenis);
+        GebeurtenisDto dto = gebeurtenisService.updateGebeurtenis(naam, newGebeurtenis);
         return ResponseEntity.ok().body(dto);
     }
 
 
 
-    @DeleteMapping("/gebeurtenissen/{id}")
-    public ResponseEntity<Object> deleteGebeurtenis(@PathVariable Long id) {
+    @DeleteMapping("/gebeurtenissen/{naam}")
+    public ResponseEntity<Object> deleteGebeurtenis(@PathVariable Long naam) {
 
-        gebeurtenisService.deleteGebeurtenis(id);
+        gebeurtenisService.deleteGebeurtenis(String.valueOf(naam));
 
         return ResponseEntity.noContent().build();
     }

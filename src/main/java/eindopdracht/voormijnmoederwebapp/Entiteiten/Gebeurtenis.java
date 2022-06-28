@@ -8,11 +8,9 @@ import javax.persistence.*;
 public class Gebeurtenis {
 
     @Id
-    @GeneratedValue
-    long Id;
-
-    @Column
+    @Column (nullable = false)
     private String naam;
+
     @Column
     private String datum;
     @Column
@@ -35,20 +33,12 @@ public class Gebeurtenis {
 
 
 
-    public long getId() {
-        return Id;
-    }
-
-    public void setId(long id) {
-        Id = id;
-    }
-
     public String getNaam() {
         return naam;
     }
 
     public void setNaam(String naam) {
-        naam = naam;
+        this.naam = naam;
     }
 
     public String getDatum() {

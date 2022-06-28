@@ -45,10 +45,10 @@ public class GebeurtenisService {
 
     }
 
-    public GebeurtenisDto getGebeurtenisById(Long id) {
+    public GebeurtenisDto getGebeurtenisByNaam(String naam) {
 
-        if (gebeurtenisRepository.findById(id).isPresent()){
-            Gebeurtenis gb = gebeurtenisRepository.findById(id).get();
+        if (gebeurtenisRepository.findById(naam).isPresent()){
+            Gebeurtenis gb = gebeurtenisRepository.findById(naam).get();
             return transfertoDto(gb);
         } else {
             throw new RecordNotFoundException("geen gebeurtenis gevonden");
@@ -64,14 +64,14 @@ public class GebeurtenisService {
 
     }
 
-    public GebeurtenisDto updateGebeurtenis(long id, GebeurtenisInputDto inputDto) {
+    public GebeurtenisDto updateGebeurtenis(String naam, GebeurtenisInputDto inputDto) {
 
-        if (gebeurtenisRepository.findById(id).isPresent()){
+        if (gebeurtenisRepository.findById(naam).isPresent()){
 
-            Gebeurtenis gb = gebeurtenisRepository.findById(id).get();
+            Gebeurtenis gb = gebeurtenisRepository.findById(naam).get();
 
             Gebeurtenis gb1 = transferToGebeurtenis(inputDto);
-            gb1.setId(gb.getId());
+            gb1.setNaam(gb.getNaam());
 
             gebeurtenisRepository.save(gb1);
 
@@ -86,9 +86,9 @@ public class GebeurtenisService {
 
     }
 
-    public void deleteGebeurtenis(@RequestBody Long id) {
+    public void deleteGebeurtenis(@RequestBody String naam) {
 
-        gebeurtenisRepository.deleteById(id);
+        gebeurtenisRepository.deleteByNaam(naam);
 
     }
 
@@ -111,7 +111,7 @@ public class GebeurtenisService {
 
         var dto = new GebeurtenisDto();
 
-        dto.setId(gebeurtenis.getId());
+
         dto.setNaam(gebeurtenis.getNaam());
         dto.setDatum(gebeurtenis.getDatum());
         dto.setStraat(gebeurtenis.getStraat());

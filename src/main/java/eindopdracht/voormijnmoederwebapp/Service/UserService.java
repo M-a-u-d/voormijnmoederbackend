@@ -103,6 +103,7 @@ public class UserService {
         var dto = new UserDto();
 
         dto.username = user.getUsername();
+        dto.id = user.getId();
         dto.password = user.getPassword();
         dto.enabled = user.isEnabled();
         dto.apikey = user.getApikey();
@@ -117,6 +118,7 @@ public class UserService {
         var user = new User();
 
         user.setUsername(userDto.getUsername());
+        user.setId(userDto.getId());
         user.setPassword(userDto.getPassword());
         user.setEnabled(userDto.getEnabled());
         user.setApikey(userDto.getApikey());
