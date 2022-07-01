@@ -1,33 +1,31 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Data
 @Entity
-@Table(name = "GebeurtenisEnUser")
+public class GebeurtenisEnUser {
 
-    public class GebeurtenisEnUser {
-
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private GebeurtenisEnUserKey id;
 
     private LocalDateTime datumAangemeld;
 
-    @ManyToOne
-    @JsonManagedReference
-    private Gebeurtenis gebeurtenis;
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId(value = "userName")
+    @JoinColumn(name = "user_name")
     private User user;
 
-    public Long getId() {
+    @ManyToOne
+    @MapsId("gebeurtenisNaam")
+    @JoinColumn(name = "gebeurtenis_naam")
+    private Gebeurtenis gebeurtenis;
+
+    public GebeurtenisEnUserKey getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(GebeurtenisEnUserKey id) {
         this.id = id;
     }
 

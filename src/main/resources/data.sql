@@ -6,3 +6,6 @@ INSERT INTO gebeurtenissen (datum, id, naam, naamwaar, opmerking, organisator, s
 
 INSERT INTO Users (username, id, phone,apikey,birthdate,email,enabled,name,password) VALUES ('jeroen', 1,NULL,'W4qh1Fe0dep4iR9YDyr0',NULL,'j@powerrr.nl',True,NULL,'$2a$10$4IVGjjqmPWFypMTfXb/t.eFxQX/6swCJDUyP3h3yPtrbrAzImlGEK');
 INSERT INTO Users (username, id, phone,apikey,birthdate,email,enabled,name,password) VALUES ('maud',2,NULL,'OMWtwlprF0YTcdReyntE',NULL,'m@powerrr.nl',True,NULL,'$2a$10$0EwezMOIhWQ2K9X2B3WpO.Oid6PeWT54r9lKxYiJT4cDogByGsReC');
+
+INSERT INTO authorities (authority, username) VALUES ('ROLE_ADMIN', 'maud');
+INSERT INTO authorities (authority, username) VALUES ('ROLE_ADMIN', 'jeroen');

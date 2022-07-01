@@ -1,7 +1,6 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -16,7 +15,7 @@ public class User {
     private String username;
 
     @Column
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
