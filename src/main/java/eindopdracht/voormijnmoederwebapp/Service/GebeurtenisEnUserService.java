@@ -69,7 +69,7 @@ public class GebeurtenisEnUserService {
     }
     public GebeurtenisEnUserKey addGebeurtenisEnUser(String userName, String gebeurtenisNaam) {
         var gebeurtenisEnUser = new GebeurtenisEnUser();
-        if (!UserRepository.existsByName(userName)) {throw new RecordNotFoundException();}
+        if (!userRepository.existsByName(userName)) {throw new RecordNotFoundException();}
         User user = userRepository.findById(userName).orElse(null);
         if (!gebeurtenisRepository.existsById(gebeurtenisNaam)) {throw new RecordNotFoundException();}
         Gebeurtenis gebeurtenis = gebeurtenisRepository.findById(gebeurtenisNaam).orElse(null);

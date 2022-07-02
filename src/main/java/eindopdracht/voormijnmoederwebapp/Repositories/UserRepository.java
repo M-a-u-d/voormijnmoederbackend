@@ -9,9 +9,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, String>, JpaSpecificationExecutor<User>{
     List<User> findAllUsersByNameEqualsIgnoreCase(String Name);
-    static boolean existsByName(String userName) {
-        return false;
-    }
-
+    boolean existsByName(String userName);
 
 }
