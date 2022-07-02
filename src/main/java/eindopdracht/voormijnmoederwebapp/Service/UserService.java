@@ -5,10 +5,11 @@ import eindopdracht.voormijnmoederwebapp.Exeptions.UsernameNotFoundException;
 import eindopdracht.voormijnmoederwebapp.Repositories.UserRepository;
 
 import eindopdracht.voormijnmoederwebapp.Utils.RandomStringGenerator;
-import eindopdracht.voormijnmoederwebapp.entiteiten.Authority;
-import eindopdracht.voormijnmoederwebapp.entiteiten.User;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,6 +22,10 @@ import java.util.Set;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
     public UserService(UserRepository userRepository)
     {
@@ -52,6 +57,7 @@ public class UserService {
     }
 
     public String createUser(UserDto userDto) {
+        userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         String randomString = RandomStringGenerator.generateAlphaNumeric(20);
         userDto.setApikey(randomString);
         User newUser = userRepository.save(toUser(userDto));
@@ -97,6 +103,7 @@ public class UserService {
         var dto = new UserDto();
 
         dto.username = user.getUsername();
+        dto.id = user.getId();
         dto.password = user.getPassword();
         dto.enabled = user.isEnabled();
         dto.apikey = user.getApikey();
@@ -111,6 +118,7 @@ public class UserService {
         var user = new User();
 
         user.setUsername(userDto.getUsername());
+        user.setId(userDto.getId());
         user.setPassword(userDto.getPassword());
         user.setEnabled(userDto.getEnabled());
         user.setApikey(userDto.getApikey());

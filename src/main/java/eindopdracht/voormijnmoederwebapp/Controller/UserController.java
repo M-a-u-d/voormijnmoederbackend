@@ -20,11 +20,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @GetMapping(value = "")
     public ResponseEntity<List<UserDto>> getUsers() {
 
         List<UserDto> userDtos = userService.getUsers();
-
         return ResponseEntity.ok().body(userDtos);
     }
 
@@ -32,17 +32,15 @@ public class UserController {
     public ResponseEntity<UserDto> getUser(@PathVariable("username") String username) {
 
         UserDto optionalUser = userService.getUser(username);
-
-
         return ResponseEntity.ok().body(optionalUser);
 
     }
 
     @PostMapping(value = "")
-    public ResponseEntity<UserDto> createKlant(@RequestBody UserDto dto) {;
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto dto) {;
 
         String newUsername = userService.createUser(dto);
-        userService.addAuthority(newUsername, "ROLE_USER");
+        userService.addAuthority(newUsername, "ROLE_ADMIN");
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{username}")
                 .buildAndExpand(newUsername).toUri();
