@@ -17,6 +17,8 @@ public class UserDto {
     @JsonSerialize
     public Set<Authority> authorities;
 
+
+
     public String getUsername() {
         return username;
     }

@@ -10,9 +10,8 @@ public class GebeurtenisDto {
     private String opmerking;
     private String organisator;
 
-    public GebeurtenisDto() {
-    }
 
+    public GebeurtenisDto() {}
     public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmerking, String organisator) {
         this.id = id;
         Naam = naam;
