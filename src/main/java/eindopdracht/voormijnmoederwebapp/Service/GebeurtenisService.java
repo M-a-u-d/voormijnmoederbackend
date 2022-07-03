@@ -1,14 +1,14 @@
 package eindopdracht.voormijnmoederwebapp.Service;
+
 import eindopdracht.voormijnmoederwebapp.Dto.GebeurtenisDto;
 import eindopdracht.voormijnmoederwebapp.Dto.GebeurtenisInputDto;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.Gebeurtenis;
 import eindopdracht.voormijnmoederwebapp.Exeptions.RecordNotFoundException;
 import eindopdracht.voormijnmoederwebapp.Repositories.GebeurtenisRepository;
-import eindopdracht.voormijnmoederwebapp.Entiteiten.Gebeurtenis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,10 +57,11 @@ public class GebeurtenisService {
 
     public GebeurtenisDto addGebeurtenis(GebeurtenisInputDto dto) {
 
-        Gebeurtenis gb = transferToGebeurtenis(dto);
-        gebeurtenisRepository.save(gb);
+            Gebeurtenis gb = transferToGebeurtenis(dto);
+            gebeurtenisRepository.save(gb);
 
-        return transfertoDto(gb);
+            return transfertoDto(gb);
+
 
     }
 

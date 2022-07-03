@@ -6,25 +6,26 @@ import java.util.Objects;
 
 public class GebeurtenisEnUserKey  implements Serializable {
 
-    @Column (name = "user_name")
-    private String userName;
+    @Column (name = "user_username")
+    private String userUsername;
 
     @Column(name = "gebeurtenis_naam")
     private String gebeurtenisNaam;
 
     public GebeurtenisEnUserKey() {
+
     }
-    public GebeurtenisEnUserKey(String userName, String gebeurtenisNaam) {
-        this.userName = userName;
+    public GebeurtenisEnUserKey(String userUsername, String gebeurtenisNaam) {
+        this.userUsername = userUsername;
         this.gebeurtenisNaam = gebeurtenisNaam;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUserUsername() {
+        return userUsername;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserUsername(String userUsername) {
+        this.userUsername = userUsername;
     }
 
     public String getGebeurtenisNaam() {
@@ -40,10 +41,10 @@ public class GebeurtenisEnUserKey  implements Serializable {
         if(this == o) return true;
         if(o == null || getClass() != o.getClass()) return false;
         GebeurtenisEnUserKey that = (GebeurtenisEnUserKey) o;
-        return userName.equals(that.userName)&& gebeurtenisNaam.equals(that.gebeurtenisNaam);
+        return userUsername.equals(that.userUsername)&& gebeurtenisNaam.equals(that.gebeurtenisNaam);
     }
 
     @Override
-    public int hashCode() {return Objects.hash(userName, gebeurtenisNaam);
+    public int hashCode() {return Objects.hash(userUsername, gebeurtenisNaam);
     }
 }

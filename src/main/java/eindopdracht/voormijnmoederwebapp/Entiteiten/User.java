@@ -1,10 +1,12 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -50,8 +52,9 @@ public class User {
     private Set<Authority> authorities = new HashSet<>();
 
     @OneToMany( mappedBy = "user")
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JsonIgnore
-    private List<Gebeurtenis> gebeurtenissen;
+    Collection<GebeurtenisEnUser> gebeurtenisEnUsers;
 
 
 //    @ManyToMany(fetch = FetchType.EAGER)
