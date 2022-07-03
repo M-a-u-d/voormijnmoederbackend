@@ -1,10 +1,12 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -50,25 +52,26 @@ public class User {
     private Set<Authority> authorities = new HashSet<>();
 
     @OneToMany( mappedBy = "user")
+    @LazyCollection(LazyCollectionOption.FALSE)
     @JsonIgnore
-    private List<Gebeurtenis> gebeurtenissen;
+    Collection<GebeurtenisEnUser> gebeurtenisEnUsers;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles = new HashSet<>();
-
-    public void addRole(Role role) {
-        this.roles.add(role);
-    }
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "users_roles",
+//            joinColumns = @JoinColumn(name = "user_username"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
+//    private Set<Role> roles = new HashSet<>();
+//
+//    public void addRole(Role role) {
+//        this.roles.add(role);
+//    }
 
     public User() {
     }
-    public User(String username, Long id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities, Set<Role> roles) {
+    public User(String username, Long id, String name, Integer phone, String birthdate, String password, String email, boolean enabled, String apikey, Set<Authority> authorities) {
         this.username = username;
         this.id = id;
         this.name = name;
@@ -79,7 +82,7 @@ public class User {
         this.enabled = enabled;
         this.apikey = apikey;
         this.authorities = authorities;
-        this.roles = roles;
+
     }
 
     public String getUsername() {
@@ -162,13 +165,13 @@ public class User {
         this.authorities = authorities;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+//    public Set<Role> getRoles() {
+//        return roles;
+//    }
+//
+//    public void setRoles(Set<Role> roles) {
+//        this.roles = roles;
+//    }
 
     public void addAuthority(Authority authority) {
         this.authorities.add(authority);

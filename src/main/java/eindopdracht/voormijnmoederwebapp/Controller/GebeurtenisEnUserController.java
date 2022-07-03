@@ -2,6 +2,7 @@ package eindopdracht.voormijnmoederwebapp.Controller;
 
 import eindopdracht.voormijnmoederwebapp.Service.GebeurtenisEnUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -16,11 +17,13 @@ public class GebeurtenisEnUserController {
         this.gebeurtenisEnUserService = gebeurtenisEnUserService;
     }
 
-    @PostMapping("/{userName}/{gebeurtenisNaam}")
-    public  void addGebeurtenisEnUser(
-            @PathVariable("userName") String userName,
+    @PostMapping("/{userUsername}/{gebeurtenisNaam}")
+    public ResponseEntity<Object> addGebeurtenisEnUser(
+            @PathVariable("userUsername") String userUsername,
             @PathVariable ("gebeurtenisNaam") String gebeurtenisNaam) {
-                gebeurtenisEnUserService.addGebeurtenisEnUser(userName, gebeurtenisNaam);
+                gebeurtenisEnUserService.addGebeurtenisEnUser(userUsername, gebeurtenisNaam);
+
+        return ResponseEntity.noContent().build();
     }
 
 }

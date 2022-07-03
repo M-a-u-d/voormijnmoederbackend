@@ -29,7 +29,7 @@ public class GebeurtenisEnUserService {
     private GebeurtenisEnUserRepository gebeurtenisEnUserRepository;
 
 
-    public Collection<UserDto> getGebeurtenisEnUserByUserName(String gebeurtenisNaam) {
+    public Collection<UserDto> getGebeurtenisEnUsersByGebeurtenisNaam(String gebeurtenisNaam) {
         Collection<UserDto> dtos = new HashSet<>();
         Collection<GebeurtenisEnUser> gebeurtenisEnUsers = gebeurtenisEnUserRepository.findAllByGebeurtenisNaam(gebeurtenisNaam);
         for (GebeurtenisEnUser gebeurtenisEnUser : gebeurtenisEnUsers) {
@@ -48,9 +48,9 @@ public class GebeurtenisEnUserService {
         return dtos;
     }
 
-    public Collection<GebeurtenisDto> getGebeurtenisEnUserByGebeurtenisNaam(String userName) {
+    public Collection<GebeurtenisDto> getGebeurtenisEnUserByUserUsername(String userUsername) {
         Collection<GebeurtenisDto> dtos = new HashSet<>();
-        Collection<GebeurtenisEnUser> gebeurtenisEnUsers = GebeurtenisEnUserRepository.findAllByUserName(userName);
+        Collection<GebeurtenisEnUser> gebeurtenisEnUsers = GebeurtenisEnUserRepository.findAllByUserName(userUsername);
         for (GebeurtenisEnUser gebeurtenisEnUser : gebeurtenisEnUsers) {
             Gebeurtenis gebeurtenis = gebeurtenisEnUser.getGebeurtenis();
             var dto = new GebeurtenisDto();
@@ -67,15 +67,15 @@ public class GebeurtenisEnUserService {
         }
         return dtos;
     }
-    public GebeurtenisEnUserKey addGebeurtenisEnUser(String userName, String gebeurtenisNaam) {
+    public GebeurtenisEnUserKey addGebeurtenisEnUser(String userUsername, String gebeurtenisNaam) {
         var gebeurtenisEnUser = new GebeurtenisEnUser();
-        if (!userRepository.existsByName(userName)) {throw new RecordNotFoundException();}
-        User user = userRepository.findById(userName).orElse(null);
+        if (!userRepository.existsById(userUsername)) {throw new RecordNotFoundException();}
+        User user = userRepository.findById(userUsername).orElse(null);
         if (!gebeurtenisRepository.existsById(gebeurtenisNaam)) {throw new RecordNotFoundException();}
         Gebeurtenis gebeurtenis = gebeurtenisRepository.findById(gebeurtenisNaam).orElse(null);
         gebeurtenisEnUser.setUser(user);
         gebeurtenisEnUser.setGebeurtenis(gebeurtenis);
-        GebeurtenisEnUserKey id = new GebeurtenisEnUserKey(userName, gebeurtenisNaam);
+        GebeurtenisEnUserKey id = new GebeurtenisEnUserKey(userUsername, gebeurtenisNaam);
         gebeurtenisEnUser.setId(id);
         gebeurtenisEnUserRepository.save(gebeurtenisEnUser);
 

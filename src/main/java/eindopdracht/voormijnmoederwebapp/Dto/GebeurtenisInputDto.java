@@ -10,11 +10,19 @@ public class GebeurtenisInputDto {
     private String opmerking;
     private String organisator;
 
+    private UserDto userDto;
+
 
     public GebeurtenisInputDto() {
     }
 
+    public UserDto getUserDto() {
+        return userDto;
+    }
 
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
+    }
 
     public String getNaam() {
         return Naam;

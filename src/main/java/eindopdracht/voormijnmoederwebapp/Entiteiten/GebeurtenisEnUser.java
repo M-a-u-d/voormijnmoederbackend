@@ -12,8 +12,8 @@ public class GebeurtenisEnUser {
     private LocalDateTime datumAangemeld;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId(value = "userName")
-    @JoinColumn(name = "user_name")
+    @MapsId(value = "userUsername")
+    @JoinColumn(name = "user_username")
     private User user;
 
     @ManyToOne

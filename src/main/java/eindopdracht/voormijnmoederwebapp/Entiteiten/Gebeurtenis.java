@@ -1,10 +1,9 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,9 +13,9 @@ public class Gebeurtenis {
     @Id
     @Column (nullable = false)
     private String naam;
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
+    @Column
+    private Long id;
     @Column
     private String datum;
     @Column
@@ -30,12 +29,9 @@ public class Gebeurtenis {
     @Column
     private String organisator;
 
-    @ManyToOne
-    private User user;
-
-    @OneToMany(mappedBy = "gebeurtenis")
-    @JsonBackReference
-    private List<GebeurtenisEnUser> wieKomtEr = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<GebeurtenisEnUser> gebeurtenisEnUsers;
 
     public Gebeurtenis() {
     }
