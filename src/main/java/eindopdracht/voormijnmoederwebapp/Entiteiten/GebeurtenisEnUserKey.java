@@ -1,9 +1,11 @@
 package eindopdracht.voormijnmoederwebapp.Entiteiten;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class GebeurtenisEnUserKey  implements Serializable {
 
     @Column (name = "user_username")
@@ -12,9 +14,7 @@ public class GebeurtenisEnUserKey  implements Serializable {
     @Column(name = "gebeurtenis_naam")
     private String gebeurtenisNaam;
 
-    public GebeurtenisEnUserKey() {
-
-    }
+    public GebeurtenisEnUserKey() {}
     public GebeurtenisEnUserKey(String userUsername, String gebeurtenisNaam) {
         this.userUsername = userUsername;
         this.gebeurtenisNaam = gebeurtenisNaam;
