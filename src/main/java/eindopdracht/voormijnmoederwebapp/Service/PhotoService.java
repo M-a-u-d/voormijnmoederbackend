@@ -22,7 +22,6 @@ public class PhotoService {
     @Value("${my.upload_location}")
     private Path fileStoragePath;
     private final String fileStorageLocation;
-
     private final FileUploadRepository repo;
 
     public PhotoService(@Value("${my.upload_location}") String fileStorageLocation, FileUploadRepository repo) {

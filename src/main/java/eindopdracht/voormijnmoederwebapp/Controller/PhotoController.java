@@ -27,10 +27,11 @@ public class PhotoController {
 
     //    post for single upload
     @PostMapping("/upload")
-    FileUploadResponse singleFileUpload(@RequestParam("file") MultipartFile file){
+    FileUploadResponse singleFileUpload(@RequestParam(value = "file", required = false) MultipartFile file){
 
         // next line makes url. example "http://localhost:8080/download/naam.jpg"
-        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/").path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
+        String url = ServletUriComponentsBuilder.fromCurrentContextPath().path
+                ("/download/").path(Objects.requireNonNull(file.getOriginalFilename())).toUriString();
 
         String contentType = file.getContentType();
 
@@ -59,7 +60,8 @@ public class PhotoController {
 //        for download attachment use next line
 //        return ResponseEntity.ok().contentType(contentType).header(HttpHeaders.CONTENT_DISPOSITION, "attachment;fileName=" + resource.getFilename()).body(resource);
 //        for showing image in browser
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType(mimeType)).header(HttpHeaders.CONTENT_DISPOSITION, "inline;fileName=" + resource.getFilename()).body(resource);
+        return ResponseEntity.ok().contentType(MediaType.parseMediaType(mimeType)).header
+                (HttpHeaders.CONTENT_DISPOSITION, "inline;fileName=" + resource.getFilename()).body(resource);
     }
 
 }

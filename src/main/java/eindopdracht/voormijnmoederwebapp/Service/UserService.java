@@ -1,13 +1,13 @@
 package eindopdracht.voormijnmoederwebapp.Service;
 
 import eindopdracht.voormijnmoederwebapp.Dto.UserDto;
-import eindopdracht.voormijnmoederwebapp.Exeptions.UsernameNotFoundException;
-import eindopdracht.voormijnmoederwebapp.Repositories.UserRepository;
-
-import eindopdracht.voormijnmoederwebapp.Utils.RandomStringGenerator;
 import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 import eindopdracht.voormijnmoederwebapp.Entiteiten.User;
-
+import eindopdracht.voormijnmoederwebapp.Exeptions.UsernameNotFoundException;
+import eindopdracht.voormijnmoederwebapp.Repositories.FileUploadRepository;
+import eindopdracht.voormijnmoederwebapp.Repositories.UserRepository;
+import eindopdracht.voormijnmoederwebapp.Utils.RandomStringGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,10 +27,16 @@ public class UserService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository)
+    public UserService(UserRepository userRepository, UserRepository repository, FileUploadRepository uploadRepository)
     {
         this.userRepository = userRepository;
+        this.repository = repository;
+        this.uploadRepository = uploadRepository;
     }
+
+    private final UserRepository repository;
+    private final FileUploadRepository uploadRepository;
+
 
     public List<UserDto> getUsers() {
         List<UserDto> collection = new ArrayList<>();
@@ -98,6 +104,19 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void assignPhotoToUser(String name, String username) {
+
+        Optional<User> optionalUser = repository.findById(username);
+        Optional<FileUploadResponse> fileUploadResponse = uploadRepository.findByFileName(name);
+
+        if (optionalUser.isPresent() && fileUploadResponse.isPresent()) {
+            FileUploadResponse photo = fileUploadResponse.get();
+            User user = optionalUser.get();
+            user.setFile(photo);
+            repository.save(user);
+        }
+
+    }
     public static UserDto fromUser(User user){
 
         var dto = new UserDto();

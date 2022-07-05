@@ -1,11 +1,13 @@
 package eindopdracht.voormijnmoederwebapp.Controller;
 
 import eindopdracht.voormijnmoederwebapp.Dto.UserDto;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 import eindopdracht.voormijnmoederwebapp.Exeptions.BadRequestException;
 import eindopdracht.voormijnmoederwebapp.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -20,6 +22,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    private final UserService service;
+    private final PhotoController controller;
+
+    public UserController(UserService service, PhotoController controller) {
+        this.service = service;
+        this.controller = controller;
+    }
 
     @GetMapping(value = "")
     public ResponseEntity<List<UserDto>> getUsers() {
@@ -95,4 +104,13 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping("/{username}/photo")
+    public void assignPhotoToUser(@PathVariable("username") String username,
+                                     @RequestBody MultipartFile file) {
+
+        FileUploadResponse photo = controller.singleFileUpload(file);
+
+        service.assignPhotoToUser(photo.getFileName(), username);
+
+    }
 }
