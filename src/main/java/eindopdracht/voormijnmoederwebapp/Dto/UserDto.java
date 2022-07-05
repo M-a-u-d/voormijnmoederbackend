@@ -2,7 +2,9 @@ package eindopdracht.voormijnmoederwebapp.Dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import eindopdracht.voormijnmoederwebapp.Entiteiten.Authority;
+import eindopdracht.voormijnmoederwebapp.Entiteiten.FileUploadResponse;
 
+import javax.persistence.OneToOne;
 import java.util.Set;
 
 public class UserDto {
@@ -17,7 +19,10 @@ public class UserDto {
     @JsonSerialize
     public Set<Authority> authorities;
 
+    @OneToOne
+    FileUploadResponse file;
 
+    private GebeurtenisDto gebeurtenisDto;
 
     public String getUsername() {
         return username;
@@ -74,4 +79,21 @@ public class UserDto {
     public void setAuthorities(Set<Authority> authorities) {
         this.authorities = authorities;
     }
+
+    public GebeurtenisDto getGebeurtenisDto() {
+        return gebeurtenisDto;
+    }
+
+    public void setGebeurtenisDto(GebeurtenisDto gebeurtenisDto) {
+        this.gebeurtenisDto = gebeurtenisDto;
+    }
+
+    public FileUploadResponse getFile() {
+        return file;
+    }
+
+    public void setFile(FileUploadResponse file) {
+        this.file = file;
+    }
 }
+

@@ -56,18 +56,26 @@ public class User {
     @JsonIgnore
     Collection<GebeurtenisEnUser> gebeurtenisEnUsers;
 
+    @OneToOne
+    FileUploadResponse file;
 
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "users_roles",
-//            joinColumns = @JoinColumn(name = "user_username"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id")
-//    )
-//    private Set<Role> roles = new HashSet<>();
-//
-//    public void addRole(Role role) {
-//        this.roles.add(role);
-//    }
+
+    public User(Collection<GebeurtenisEnUser> gebeurtenisEnUsers) {
+        this.gebeurtenisEnUsers = gebeurtenisEnUsers;
+    }
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_username"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
+
+    public void addRole(Role role) {
+        this.roles.add(role);
+    }
 
     public User() {
     }
@@ -165,19 +173,31 @@ public class User {
         this.authorities = authorities;
     }
 
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-//    }
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public void setFile(FileUploadResponse file) {this.file = file; }
 
     public void addAuthority(Authority authority) {
         this.authorities.add(authority);
     }
+
     public void removeAuthority(Authority authority) {
         this.authorities.remove(authority);
     }
+
+    public Collection<GebeurtenisEnUser> getGebeurtenisEnUsers() {
+        return gebeurtenisEnUsers;
+    }
+
+    public void setGebeurtenisEnUsers(Collection<GebeurtenisEnUser> gebeurtenisEnUsers) {
+        this.gebeurtenisEnUsers = gebeurtenisEnUsers;
+    }
 }
+
 
