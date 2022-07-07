@@ -14,9 +14,10 @@ public class Gebeurtenis {
     @Column (nullable = false)
     private String naam;
 
-    @Column
+    @Column (nullable = false)
     private String username;
-    @Column
+
+    @Column (nullable = false)
     private String datum;
     @Column
     private String straat;
