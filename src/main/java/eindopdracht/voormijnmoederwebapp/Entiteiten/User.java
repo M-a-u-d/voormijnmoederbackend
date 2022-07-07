@@ -42,6 +42,10 @@ public class User {
     @Column
     private String apikey;
 
+    private String hobbies;
+
+    private String huisdier;
+
     @OneToMany(
             targetEntity = Authority.class,
             mappedBy = "username",
@@ -163,6 +167,26 @@ public class User {
 
     public void setApikey(String apikey) {
         this.apikey = apikey;
+    }
+
+    public String getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public String getHuisdier() {
+        return huisdier;
+    }
+
+    public void setHuisdier(String huisdier) {
+        this.huisdier = huisdier;
+    }
+
+    public FileUploadResponse getFile() {
+        return file;
     }
 
     public Set<Authority> getAuthorities() {

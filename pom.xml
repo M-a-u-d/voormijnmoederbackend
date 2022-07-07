@@ -12,9 +12,10 @@
 
     <groupId>eindopdracht</groupId>
     <artifactId>voormijnmoederwebapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>4.07.22-SNAPSHOT</version>
     <name>voormijnmoederwebapp</name>
     <description>voormijnmoederwebapp</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>

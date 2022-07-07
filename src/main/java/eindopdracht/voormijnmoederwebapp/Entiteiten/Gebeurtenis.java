@@ -15,7 +15,7 @@ public class Gebeurtenis {
     private String naam;
 
     @Column
-    private Long id;
+    private String username;
     @Column
     private String datum;
     @Column
@@ -46,9 +46,13 @@ public class Gebeurtenis {
         this.naam = naam;
     }
 
-    public Long getId() { return id;}
+    public String getUsername() {
+        return username;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getDatum() {
         return datum;
@@ -96,5 +100,13 @@ public class Gebeurtenis {
 
     public void setOrganisator(String organisator) {
         this.organisator = organisator;
+    }
+
+    public List<GebeurtenisEnUser> getGebeurtenisEnUsers() {
+        return gebeurtenisEnUsers;
+    }
+
+    public void setGebeurtenisEnUsers(List<GebeurtenisEnUser> gebeurtenisEnUsers) {
+        this.gebeurtenisEnUsers = gebeurtenisEnUsers;
     }
 }

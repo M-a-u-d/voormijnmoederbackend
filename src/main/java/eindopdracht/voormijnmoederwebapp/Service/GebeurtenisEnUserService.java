@@ -48,7 +48,7 @@ public class GebeurtenisEnUserService {
         return dtos;
     }
 
-    public Collection<GebeurtenisDto> getGebeurtenisEnUserByUserUsername(String userUsername) {
+    public Collection<GebeurtenisDto> getGebeurtenisEnUsersByUserUsername(String userUsername) {
         Collection<GebeurtenisDto> dtos = new HashSet<>();
         Collection<GebeurtenisEnUser> gebeurtenisEnUsers = GebeurtenisEnUserRepository.findAllByUserName(userUsername);
         for (GebeurtenisEnUser gebeurtenisEnUser : gebeurtenisEnUsers) {

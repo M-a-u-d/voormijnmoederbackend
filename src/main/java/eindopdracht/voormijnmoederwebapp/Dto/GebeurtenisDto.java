@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Dto;
 
 public class GebeurtenisDto {
-    private long id;
+    private String Username;
     private String Naam;
     private String datum;
     private String straat;
@@ -12,16 +12,7 @@ public class GebeurtenisDto {
 
 
     public GebeurtenisDto() {}
-    public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmerking, String organisator) {
-        this.id = id;
-        Naam = naam;
-        this.datum = datum;
-        this.straat = straat;
-        this.woonplaats = woonplaats;
-        this.naamwaar = naamwaar;
-        this.opmerking = opmerking;
-        this.organisator = organisator;
-    }
+
 
     public String getNaamwaar() {
         return naamwaar;
@@ -47,12 +38,12 @@ public class GebeurtenisDto {
         this.organisator = organisator;
     }
 
-    public long getId() {
-        return id;
+    public String getUsername() {
+        return Username;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUsername(String username) {
+        Username = username;
     }
 
     public String getNaam() {
