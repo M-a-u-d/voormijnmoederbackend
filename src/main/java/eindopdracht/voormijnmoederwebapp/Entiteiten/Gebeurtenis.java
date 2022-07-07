@@ -110,4 +110,5 @@ public class Gebeurtenis {
     public void setGebeurtenisEnUsers(List<GebeurtenisEnUser> gebeurtenisEnUsers) {
         this.gebeurtenisEnUsers = gebeurtenisEnUsers;
     }
+
 }
