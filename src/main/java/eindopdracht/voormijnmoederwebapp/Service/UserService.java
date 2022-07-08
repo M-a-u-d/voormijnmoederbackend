@@ -127,6 +127,8 @@ public class UserService {
         dto.enabled = user.isEnabled();
         dto.apikey = user.getApikey();
         dto.email = user.getEmail();
+        dto.hobbies = user.getHobbies();
+        dto.huisdier = user.getHuisdier();
         dto.authorities = user.getAuthorities();
 
         return dto;
@@ -142,6 +144,8 @@ public class UserService {
         user.setEnabled(userDto.getEnabled());
         user.setApikey(userDto.getApikey());
         user.setEmail(userDto.getEmail());
+        user.setHobbies(userDto.getHobbies());
+        user.setHuisdier(userDto.getHuisdier());
 
         return user;
     }

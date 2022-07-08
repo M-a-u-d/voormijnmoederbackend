@@ -1,7 +1,7 @@
 package eindopdracht.voormijnmoederwebapp.Dto;
 
 public class GebeurtenisDto {
-    private long id;
+    private String Username;
     private String Naam;
     private String datum;
     private String straat;
@@ -12,47 +12,14 @@ public class GebeurtenisDto {
 
 
     public GebeurtenisDto() {}
-    public GebeurtenisDto(long id, String naam, String datum, String straat, String woonplaats, String naamwaar, String opmerking, String organisator) {
-        this.id = id;
-        Naam = naam;
-        this.datum = datum;
-        this.straat = straat;
-        this.woonplaats = woonplaats;
-        this.naamwaar = naamwaar;
-        this.opmerking = opmerking;
-        this.organisator = organisator;
+
+
+    public String getUsername() {
+        return Username;
     }
 
-    public String getNaamwaar() {
-        return naamwaar;
-    }
-
-    public void setNaamwaar(String naamwaar) {
-        this.naamwaar = naamwaar;
-    }
-
-    public String getOpmerking() {
-        return opmerking;
-    }
-
-    public void setOpmerking(String opmering) {
-        this.opmerking = opmering;
-    }
-
-    public String getOrganisator() {
-        return organisator;
-    }
-
-    public void setOrganisator(String organisator) {
-        this.organisator = organisator;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setUsername(String username) {
+        Username = username;
     }
 
     public String getNaam() {
@@ -87,5 +54,27 @@ public class GebeurtenisDto {
         this.woonplaats = woonplaats;
     }
 
+    public String getNaamwaar() {
+        return naamwaar;
+    }
 
+    public void setNaamwaar(String naamwaar) {
+        this.naamwaar = naamwaar;
+    }
+
+    public String getOpmerking() {
+        return opmerking;
+    }
+
+    public void setOpmerking(String opmerking) {
+        this.opmerking = opmerking;
+    }
+
+    public String getOrganisator() {
+        return organisator;
+    }
+
+    public void setOrganisator(String organisator) {
+        this.organisator = organisator;
+    }
 }

@@ -98,6 +98,7 @@ public class GebeurtenisService {
         var Gebeurtenis = new Gebeurtenis();
 
         Gebeurtenis.setNaam (dto.getNaam());
+        Gebeurtenis.setUsername(dto.getUsername());
         Gebeurtenis.setDatum(dto.getDatum());
         Gebeurtenis.setStraat(dto.getStraat());
         Gebeurtenis.setWoonplaats(dto.getWoonplaats());
@@ -114,6 +115,7 @@ public class GebeurtenisService {
 
 
         dto.setNaam(gebeurtenis.getNaam());
+        dto.setUsername(gebeurtenis.getUsername());
         dto.setDatum(gebeurtenis.getDatum());
         dto.setStraat(gebeurtenis.getStraat());
         dto.setWoonplaats(gebeurtenis.getWoonplaats());

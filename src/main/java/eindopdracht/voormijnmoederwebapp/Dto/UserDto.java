@@ -15,6 +15,8 @@ public class UserDto {
     public Boolean enabled;
     public String apikey;
     public String email;
+    public String hobbies;
+    public String huisdier;
 
     @JsonSerialize
     public Set<Authority> authorities;
@@ -74,6 +76,22 @@ public class UserDto {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String hobbies) {
+        this.hobbies = hobbies;
+    }
+
+    public String getHuisdier() {
+        return huisdier;
+    }
+
+    public void setHuisdier(String huisdier) {
+        this.huisdier = huisdier;
     }
 
     public void setAuthorities(Set<Authority> authorities) {
