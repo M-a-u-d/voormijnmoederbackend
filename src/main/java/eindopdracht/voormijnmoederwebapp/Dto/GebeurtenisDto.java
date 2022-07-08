@@ -14,30 +14,6 @@ public class GebeurtenisDto {
     public GebeurtenisDto() {}
 
 
-    public String getNaamwaar() {
-        return naamwaar;
-    }
-
-    public void setNaamwaar(String naamwaar) {
-        this.naamwaar = naamwaar;
-    }
-
-    public String getOpmerking() {
-        return opmerking;
-    }
-
-    public void setOpmerking(String opmering) {
-        this.opmerking = opmering;
-    }
-
-    public String getOrganisator() {
-        return organisator;
-    }
-
-    public void setOrganisator(String organisator) {
-        this.organisator = organisator;
-    }
-
     public String getUsername() {
         return Username;
     }
@@ -78,5 +54,27 @@ public class GebeurtenisDto {
         this.woonplaats = woonplaats;
     }
 
+    public String getNaamwaar() {
+        return naamwaar;
+    }
 
+    public void setNaamwaar(String naamwaar) {
+        this.naamwaar = naamwaar;
+    }
+
+    public String getOpmerking() {
+        return opmerking;
+    }
+
+    public void setOpmerking(String opmerking) {
+        this.opmerking = opmerking;
+    }
+
+    public String getOrganisator() {
+        return organisator;
+    }
+
+    public void setOrganisator(String organisator) {
+        this.organisator = organisator;
+    }
 }

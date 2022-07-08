@@ -3,6 +3,7 @@ package eindopdracht.voormijnmoederwebapp.Dto;
 public class GebeurtenisInputDto {
 
     private String Naam;
+    private String username;
     private String datum;
     private String straat;
     private String woonplaats;
@@ -30,6 +31,14 @@ public class GebeurtenisInputDto {
 
     public void setNaam(String naam) {
         Naam = naam;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getDatum() {
@@ -68,8 +77,8 @@ public class GebeurtenisInputDto {
         return opmerking;
     }
 
-    public void setOpmerking(String opmering) {
-        this.opmerking = opmering;
+    public void setOpmerking(String opmerking) {
+        this.opmerking = opmerking;
     }
 
     public String getOrganisator() {

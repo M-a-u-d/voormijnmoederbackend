@@ -27,6 +27,18 @@ public class GebeurtenisController {
         this.gebeurtenisService = gebeurtenisService;
     }
 
+    @PostMapping("/gebeurtenissen")
+    public ResponseEntity<Object> addGebeurtenis(
+            @RequestBody GebeurtenisInputDto gebeurtenisInputDto) {
+        GebeurtenisDto dto = gebeurtenisService.addGebeurtenis(gebeurtenisInputDto);
+
+        return ResponseEntity.created(null).body(dto);
+    }
+
+    //        throws URISyntaxException {
+//        URI location = new URI("localhost.8081/televisions");
+//        return ResponseEntity.created(location).build();
+//    }
     @GetMapping("/gebeurtenissen")
     public ResponseEntity<List<GebeurtenisDto>> getAllgebeurtenissen(
             @RequestParam(value = "naam", required = false) Optional<String> naam) {
@@ -50,18 +62,7 @@ public class GebeurtenisController {
         return ResponseEntity.ok().body(gebeurtenis);
     }
 
-    @PostMapping("/gebeurtenissen")
-    public ResponseEntity<Object> addGebeurtenis(
-            @RequestBody GebeurtenisInputDto gebeurtenisInputDto) {
-        GebeurtenisDto dto = gebeurtenisService.addGebeurtenis(gebeurtenisInputDto);
 
-        return ResponseEntity.created(null).body(dto);
-    }
-
-//        throws URISyntaxException {
-//        URI location = new URI("localhost.8081/televisions");
-//        return ResponseEntity.created(location).build();
-//    }
 
     @PutMapping("/gebeurtenissen/{naam}")
     public ResponseEntity<Object> updateGebeurtenis(

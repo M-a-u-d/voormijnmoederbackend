@@ -38,7 +38,6 @@ public class Gebeurtenis {
     }
 
 
-
     public String getNaam() {
         return naam;
     }
